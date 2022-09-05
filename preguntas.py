@@ -140,7 +140,10 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+    gp4 = tbl0.copy()
+    gp4["suma"] = gp4["_c0"] + gp4["_c2"]
+
+    return gp4
 
 
 def pregunta_09():
@@ -158,7 +161,10 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+    gp5 = tbl0.copy()
+    gp5["year"] = gp5["_c3"].str[:4]
+
+    return gp5
 
 
 def pregunta_10():
@@ -175,7 +181,10 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    gp6 = tbl0.groupby("_c1")["_c2"].apply(lambda x: ":".join(map(str,sorted(list(x)))))
+    new_df = pd.DataFrame(gp6)
+
+    return new_df
 
 
 def pregunta_11():
@@ -194,7 +203,9 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    gp7 = tbl1.groupby("_c0")["_c4"].apply(lambda x: ",".join(map(str,sorted(list(x))))).reset_index()
+
+    return gp7
 
 
 def pregunta_12():
