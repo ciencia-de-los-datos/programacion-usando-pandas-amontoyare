@@ -87,7 +87,9 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    gp2 = tbl0.groupby("_c1")["_c2"].max()
+
+    return gp2
 
 
 def pregunta_06():
@@ -99,7 +101,10 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    list0 = sorted(list(tbl1["_c4"].unique()))
+    list0 = [x.upper() for x in list0]
+
+    return list0
 
 
 def pregunta_07():
@@ -115,7 +120,9 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
+    gp3 = tbl0.groupby("_c1")["_c2"].sum()
+
+    return gp3
 
 
 def pregunta_08():
