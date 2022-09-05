@@ -50,7 +50,9 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    gp0 = tbl0.groupby("_c1")["_c1"].count()
+
+    return gp0
 
 
 def pregunta_04():
@@ -65,7 +67,10 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+
+    gp1 = tbl0.groupby("_c1")["_c2"].mean()
+
+    return gp1
 
 
 def pregunta_05():
