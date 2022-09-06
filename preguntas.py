@@ -223,7 +223,11 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    tbl2["_c5"] = tbl2["_c5a"].astype(str) + ":" + tbl2["_c5b"].astype(str)
+    gp8 = tbl2.groupby("_c0")["_c5"].apply(lambda x: ",".join(sorted(list(x)))).reset_index()
+    new_df1 = pd.DataFrame(gp8)
+
+    return new_df1
 
 
 def pregunta_13():
@@ -240,4 +244,10 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    return
+    tbl0.set_index("_c0")
+    tbl2.set_index("_c0")
+
+    comb = pd.merge(tbl0,tbl2,on="_c0")
+    gp9 = comb.groupby("_c1")["_c5b"].sum()
+
+    return gp9
